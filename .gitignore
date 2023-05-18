@@ -1,0 +1,97 @@
+# Created by http://www.gitignore.io
+
+antx.properties
+### Eclipse ###
+*.pydevproject
+.metadata
+.gradle
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.project
+.classpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# sbteclipse plugin 
+.target
+
+# TeXlipse plugin
+.texlipse
+
+
+### Java ###
+*.class
+
+# Mobile Tools for Java ()J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+
+# run hsf related
+D:/
+*.log
+*.log.*
+tree
+web-core/hsf.configuration/
+t
+
+api/*.iml
+provider/*.iml
+web/*.iml
+*.iml
+**/*.iml
+.idea/
+.project
+.settings/org.eclipse.m2e.core.prefs
+api/lippi.microapp.api.iml
+provider/lippi.microapp.provider.iml
+web/lippi.microapp.web.iml
+api/.classpath
+api/.project
+api/.settings/*
+
+api/*.im
+api/bin/.gitignore
+api/bin/.project
+api/bin/pom.xml
+api/bin/*
+provider/.classpath
+provider/.project
+provider/.settings/*
+provider/*.im
+provider/hsf-test/*
+web/.classpath
+web/.project
+web/.settings/*
+web/*.im
+web/bin/*
