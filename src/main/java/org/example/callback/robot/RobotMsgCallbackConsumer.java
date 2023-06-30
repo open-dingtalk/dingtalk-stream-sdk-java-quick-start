@@ -1,6 +1,8 @@
 package org.example.callback.robot;
 
 import com.alibaba.fastjson.JSONObject;
+import org.example.model.DingTalkBotMessage;
+import org.example.model.Text;
 import org.example.service.RobotGroupMessagesService;
 import com.dingtalk.open.app.api.callback.OpenDingTalkCallbackListener;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class RobotMsgCallbackConsumer implements OpenDingTalkCallbackListener<JSONObject, JSONObject> {
+public class RobotMsgCallbackConsumer implements OpenDingTalkCallbackListener<DingTalkBotMessage, JSONObject> {
     private RobotGroupMessagesService robotGroupMessagesService;
 
     @Autowired
@@ -23,25 +25,26 @@ public class RobotMsgCallbackConsumer implements OpenDingTalkCallbackListener<JS
     /**
      * https://open.dingtalk.com/document/orgapp/the-application-robot-in-the-enterprise-sends-group-chat-messages
      *
-     * @param request
+     * @param message
      * @return
      */
     @Override
-    public JSONObject execute(JSONObject request) {
+    public JSONObject execute(DingTalkBotMessage message) {
         try {
-            JSONObject text = request.getJSONObject("text");
+            Text text = message.getText();
             if (text != null) {
-                String msg = text.getString("content").trim();
-                log.info("receive bot message from user:" + request.get("senderId") + ", msg:" + msg);
-                String openConversationId = request.getString("conversationId");
+                String msg = text.getContent();
+                log.info("receive bot message from user={}, msg={}", message.getSenderId(), msg);
+                String openConversationId = message.getConversationId();
                 try {
+                    //发送机器人消息
                     robotGroupMessagesService.send(openConversationId, "hello");
                 } catch (Exception e) {
                     log.error("send group message by robot error:" + e.getMessage(), e);
                 }
             }
         } catch (Exception e) {
-            log.error("receive group message by robot error:" +e.getMessage(), e);
+            log.error("receive group message by robot error:" + e.getMessage(), e);
         }
         return new JSONObject();
     }

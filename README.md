@@ -4,7 +4,7 @@
 
 Java SDK for DingTalk Stream Mode API, Compared with the webhook mode, it is easier to access the DingTalk chatbot
 
-钉钉支持 Stream 模式接入事件推送、机器人收消息以及卡片回调，该 SDK 实现了 Stream 模式。相比 Webhook 模式，Stream 模式可以更简单的接入各类事件和回调。
+钉钉支持 Stream 模式接入事件推送、机器人收消息以及卡片回调，该 SDK 实现了 Stream 模式。相比 Webhook 模式，Stream 模式无需暴露公网服务即可快速接入各类事件和回调,可参考[Stream模式钉钉官方文档](https://open.dingtalk.com/document/resourcedownload/Introduction-to-stream-mode)。本示例工程将展示如何使用 Stream 模式快速创建钉钉机器人。
 
 
 ## Dingtalk Stream Java SDK
@@ -14,7 +14,7 @@ Java SDK for DingTalk Stream Mode API, Compared with the webhook mode, it is eas
 <dependency>
     <groupId>com.dingtalk.open</groupId>
     <artifactId>app-stream-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
