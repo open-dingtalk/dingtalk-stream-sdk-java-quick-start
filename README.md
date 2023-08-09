@@ -14,7 +14,7 @@ Java SDK for DingTalk Stream Mode API, Compared with the webhook mode, it is eas
 <dependency>
     <groupId>com.dingtalk.open</groupId>
     <artifactId>app-stream-client</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 
