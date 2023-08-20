@@ -42,8 +42,5 @@ Java SDK for DingTalk Stream Mode API, Compared with the webhook mode, it is eas
 ![img_1.png](https://s1.ax1x.com/2023/05/16/p92jjIJ.png)
 
 技术支持
-可以搜索共创群，答疑交流。共创群ID：35365014813 （钉钉搜索群号入群）；
-也可以扫码入群：
 
-![img_2.png](https://gw.alicdn.com/imgextra/i1/O1CN01Cl10lw1OrfW9LdIgQ_!!6000000001759-0-tps-585-765.jpg)
-
+[点击链接，加入Stream模式共创群交流](https://open-dingtalk.github.io/developerpedia/docs/explore/support/?via=moon-group)
