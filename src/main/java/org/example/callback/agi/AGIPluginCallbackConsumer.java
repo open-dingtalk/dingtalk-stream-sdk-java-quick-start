@@ -14,11 +14,16 @@ public class AGIPluginCallbackConsumer implements OpenDingTalkCallbackListener<D
     public DingTalkAGIPluginResponse execute(DingTalkAGIPluginRequest request) {
         log.info("receive AGI plugin request={}", request);
         DingTalkAGIPluginOutput output = new DingTalkAGIPluginOutput();
-        output.setOutput("echo");
+        switch (request.getAbilityKey()) {
+            case "hello" :
+                output.setOutput("echo");
+                break;
+            default:
+                output.setOutput("no service");
+        }
         DingTalkAGIPluginResponse response = new DingTalkAGIPluginResponse();
         response.setRequestId(request.getRequestId());
         response.setResult(output);
         return response;
     }
-
 }
