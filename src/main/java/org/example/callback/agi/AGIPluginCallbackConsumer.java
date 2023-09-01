@@ -13,11 +13,11 @@ public class AGIPluginCallbackConsumer implements OpenDingTalkCallbackListener<D
     @Override
     public DingTalkAGIPluginResponse execute(DingTalkAGIPluginRequest request) {
         log.info("receive AGI plugin request={}", request);
-        DingTalkAGIPluginOutput payload = new DingTalkAGIPluginOutput();
-        payload.setOutput("echo");
+        DingTalkAGIPluginOutput output = new DingTalkAGIPluginOutput();
+        output.setOutput("echo");
         DingTalkAGIPluginResponse response = new DingTalkAGIPluginResponse();
         response.setRequestId(request.getRequestId());
-        response.setResult(payload);
+        response.setResult(output);
         return response;
     }
 
