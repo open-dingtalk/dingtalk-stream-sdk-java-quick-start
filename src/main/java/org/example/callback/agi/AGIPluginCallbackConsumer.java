@@ -17,6 +17,7 @@ public class AGIPluginCallbackConsumer implements OpenDingTalkCallbackListener<D
         switch (request.getAbilityKey()) {
             case "hello" :
                 output.setOutput("echo");
+                break;
             default:
                 output.setOutput("no service");
         }
