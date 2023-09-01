@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.callback.agi.AGIPluginCallbackConsumer;
 import org.example.callback.robot.RobotMsgCallbackConsumer;
 import com.dingtalk.open.app.api.OpenDingTalkClient;
 import com.dingtalk.open.app.api.OpenDingTalkStreamClientBuilder;
@@ -24,10 +25,17 @@ public class StreamCallbackListener {
     @Value("${robot.msg.topic}")
     private String robotMsgTopic;
 
+    @Value("${agi.plugin.topic}")
+    private String agiPluginTopic;
+
     private RobotMsgCallbackConsumer robotMsgCallbackConsumer;
 
-    public StreamCallbackListener(@Autowired RobotMsgCallbackConsumer robotMsgCallbackConsumer) {
+    private AGIPluginCallbackConsumer agiPluginCallbackConsumer;
+
+    public StreamCallbackListener(@Autowired RobotMsgCallbackConsumer robotMsgCallbackConsumer,
+                                  @Autowired AGIPluginCallbackConsumer agiPluginCallbackConsumer) {
         this.robotMsgCallbackConsumer = robotMsgCallbackConsumer;
+        this.agiPluginCallbackConsumer = agiPluginCallbackConsumer;
     }
 
     @PostConstruct
@@ -37,6 +45,7 @@ public class StreamCallbackListener {
                 .custom()
                 .credential(new AuthClientCredential(appKey, appSecret))
                 .registerCallbackListener(robotMsgTopic, robotMsgCallbackConsumer)
+                .registerCallbackListener(agiPluginTopic, agiPluginCallbackConsumer)
                 .build();
         client.start();
     }
