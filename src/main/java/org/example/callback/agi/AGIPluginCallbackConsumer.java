@@ -2,7 +2,6 @@ package org.example.callback.agi;
 
 import com.dingtalk.open.app.api.callback.OpenDingTalkCallbackListener;
 import lombok.extern.slf4j.Slf4j;
-import org.example.model.DingTalkAGIPluginOutput;
 import org.example.model.DingTalkAGIPluginRequest;
 import org.example.model.DingTalkAGIPluginResponse;
 import org.springframework.stereotype.Component;
@@ -13,17 +12,11 @@ public class AGIPluginCallbackConsumer implements OpenDingTalkCallbackListener<D
     @Override
     public DingTalkAGIPluginResponse execute(DingTalkAGIPluginRequest request) {
         log.info("receive AGI plugin request={}", request);
-        DingTalkAGIPluginOutput output = new DingTalkAGIPluginOutput();
-        switch (request.getAbilityKey()) {
-            case "hello" :
-                output.setOutput("echo");
-                break;
-            default:
-                output.setOutput("no service");
-        }
-        DingTalkAGIPluginResponse response = new DingTalkAGIPluginResponse();
+        String abilityKey = request.getAbilityKey();
+        // dos something with abilityKey
+        DingTalkAGIPluginResponse  response = new DingTalkAGIPluginResponse();
         response.setRequestId(request.getRequestId());
-        response.setResult(output);
+        response.setResult("echo");
         return response;
     }
 }

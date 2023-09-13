@@ -10,7 +10,7 @@ public class DingTalkAGIPluginResponse {
     /**
      * response to AIPaaS
      */
-    private DingTalkAGIPluginOutput result;
+    private Object result;
     /**
      * request identity
      */

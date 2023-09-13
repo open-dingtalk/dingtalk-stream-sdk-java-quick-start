@@ -25,7 +25,7 @@ public class DingTalkAGIPluginRequest {
     /**
      * data from AIPaaS
      */
-    private DingTalkAGIPluginInput data;
+    private Object data;
 
     /**
      * request identity
