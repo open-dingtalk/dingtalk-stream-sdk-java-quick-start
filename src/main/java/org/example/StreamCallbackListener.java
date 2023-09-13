@@ -25,7 +25,7 @@ public class StreamCallbackListener {
     @Value("${robot.msg.topic}")
     private String robotMsgTopic;
 
-    @Value("${agi.plugin.topic}")
+    @Value("${ai.plugin.topic}")
     private String aiPluginTopic;
 
     private RobotMsgCallbackConsumer robotMsgCallbackConsumer;
