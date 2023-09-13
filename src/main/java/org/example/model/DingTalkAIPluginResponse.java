@@ -6,7 +6,7 @@ import lombok.Data;
  * @author zeymo
  */
 @Data
-public class DingTalkAGIPluginResponse {
+public class DingTalkAIPluginResponse {
     /**
      * response to AIPaaS
      */
