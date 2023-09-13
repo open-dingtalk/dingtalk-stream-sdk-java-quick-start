@@ -6,7 +6,7 @@ import lombok.Data;
  * @author zeymo
  */
 @Data
-public class DingTalkAGIPluginRequest {
+public class DingTalkAIPluginRequest {
     /**
      * plugin identity
      */
