@@ -1,8 +1,8 @@
-package org.example.callback.robot;
+package org.example.callback.chatbot;
 
 import com.alibaba.fastjson.JSONObject;
-import org.example.model.DingTalkBotMessage;
-import org.example.model.Text;
+import com.dingtalk.open.app.api.models.bot.ChatbotMessage;
+import com.dingtalk.open.app.api.models.bot.MessageContent;
 import org.example.service.RobotGroupMessagesService;
 import com.dingtalk.open.app.api.callback.OpenDingTalkCallbackListener;
 import lombok.extern.slf4j.Slf4j;
@@ -10,15 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
+ * 机器人消息回调
+ *
  * @author zeymo
  */
 @Slf4j
 @Component
-public class RobotMsgCallbackConsumer implements OpenDingTalkCallbackListener<DingTalkBotMessage, JSONObject> {
+public class ChatBotCallbackListener implements OpenDingTalkCallbackListener<ChatbotMessage, JSONObject> {
     private RobotGroupMessagesService robotGroupMessagesService;
 
     @Autowired
-    public RobotMsgCallbackConsumer(RobotGroupMessagesService robotGroupMessagesService) {
+    public ChatBotCallbackListener(RobotGroupMessagesService robotGroupMessagesService) {
         this.robotGroupMessagesService = robotGroupMessagesService;
     }
 
@@ -29,9 +31,9 @@ public class RobotMsgCallbackConsumer implements OpenDingTalkCallbackListener<Di
      * @return
      */
     @Override
-    public JSONObject execute(DingTalkBotMessage message) {
+    public JSONObject execute(ChatbotMessage message) {
         try {
-            Text text = message.getText();
+            MessageContent text = message.getText();
             if (text != null) {
                 String msg = text.getContent();
                 log.info("receive bot message from user={}, msg={}", message.getSenderId(), msg);

@@ -16,8 +16,8 @@
     <dependencies>
         <dependency>
             <groupId>com.dingtalk.open</groupId>
-            <artifactId>app-stream-client</artifactId>
-            <version>1.0.5</version>
+            <artifactId>dingtalk-stream</artifactId>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
