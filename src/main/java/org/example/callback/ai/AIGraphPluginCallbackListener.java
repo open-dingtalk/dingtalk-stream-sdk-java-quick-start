@@ -3,6 +3,7 @@ package org.example.callback.ai;
 import com.dingtalk.open.app.api.callback.OpenDingTalkCallbackListener;
 import com.dingtalk.open.app.api.graph.GraphAPIRequest;
 import com.dingtalk.open.app.api.graph.GraphAPIResponse;
+import com.dingtalk.open.app.api.graph.StatusLine;
 import com.dingtalk.open.app.api.models.ai.AIPluginHeaders;
 import com.dingtalk.open.app.api.util.GraphUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,6 @@ public class AIGraphPluginCallbackListener implements OpenDingTalkCallbackListen
         String data = request.getBody();
         //获取graph的路径请求{version}/{resource}
         String path = request.getRequestLine().getPath();
-        return GraphUtils.successJson("echo");
+        return GraphUtils.failed(StatusLine.INTERNAL_ERROR);
     }
 }

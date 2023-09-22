@@ -2,7 +2,7 @@ package org.example;
 
 import com.dingtalk.open.app.api.OpenDingTalkClient;
 import com.dingtalk.open.app.api.OpenDingTalkStreamClientBuilder;
-import com.dingtalk.open.app.api.callback.OpenDingTalkStreamTopics;
+import com.dingtalk.open.app.api.callback.DingTalkStreamTopics;
 import com.dingtalk.open.app.api.security.AuthClientCredential;
 import org.example.callback.ai.AIGraphPluginCallbackListener;
 import org.example.callback.chatbot.ChatBotCallbackListener;
@@ -34,12 +34,12 @@ public class DingTalkStreamClientConfiguration {
     public OpenDingTalkClient configureStreamClient(@Autowired ChatBotCallbackListener chatBotCallbackListener,
                                                     @Autowired AIGraphPluginCallbackListener aiGraphPluginCallbackListener) throws Exception {
         // init stream client
-        return OpenDingTalkStreamClientBuilder.custom().preEnv()
+        return OpenDingTalkStreamClientBuilder.custom()
                 //配置应用的身份信息, 企业内部应用分别为appKey和appSecret, 三方应用为suiteKey和suiteSecret
                 .credential(new AuthClientCredential(clientId, clientSecret))
                 //注册机器人回调
-                .registerCallbackListener(OpenDingTalkStreamTopics.BOT_MESSAGE_TOPIC, chatBotCallbackListener)
+                .registerCallbackListener(DingTalkStreamTopics.BOT_MESSAGE_TOPIC, chatBotCallbackListener)
                 //注册graph api回调
-                .registerCallbackListener(OpenDingTalkStreamTopics.GRAPH_API_TOPIC, aiGraphPluginCallbackListener).build();
+                .registerCallbackListener(DingTalkStreamTopics.GRAPH_API_TOPIC, aiGraphPluginCallbackListener).build();
     }
 }
